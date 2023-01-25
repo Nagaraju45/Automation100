@@ -1,0 +1,58 @@
+C:\Users\nagar\PycharmProjects\LearningPyTest>
+LearningPyTest is project name
+
+List of files
+>dir
+
+pytest will run all files of the form test_*.py or *_test.py in the current directories and its subdirectories.
+>pytest
+
+get more details
+-v means verbose
+>pytest -v
+
+show all the commands
+>pytest -h
+
+only run one file
+ex: pytest -s LearnPyTest\test_additems.py
+
+
+Only run tests which match the given substring expression.
+usage: pytest [options] [file_or_dir] [file_or_dir] [...]
+ex: pytest LearnPyTest\test_additems.py -vsk log
+here 'log' is substring of that test
+
+show about markers
+>pytest --markers
+
+only run tests matching given mark expression.
+-m MARKEXPR
+>pytest -m sanity
+>pytest -m regression
+>pytest -m xfail
+>pytest -v
+
+
+Fixture scopes
+--------------
+Fixtures are created when first requested by a test, and are destroyed based on their scope:
+
+function: the default scope, the fixture is destroyed at the end of the test.
+
+class: the fixture is destroyed during teardown of the last test in the class.
+
+module: the fixture is destroyed during teardown of the last test in the module.
+
+package: the fixture is destroyed during teardown of the last test in the package.
+
+session: the fixture is destroyed at the end of the test session.
+
+
+PyTest-html
+-----------
+pip install pytest-html
+
+url: https://pytest-html.readthedocs.io/en/latest/
+
+>pytest -vs --browser chrome --html=report.html --self-contained-html
